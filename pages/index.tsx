@@ -8,10 +8,10 @@ const Home: NextPage = () => {
     <div className='flex min-h-screen bg-slate-800 justify-center items-center p-4'>
       <div className='mx-auto w-full max-w-md rounded-2xl bg-white'>
         <div className='flex justify-between rounded p-8'>
-          <Step step={1} currentStep={step} />
-          <Step step={2} currentStep={step} />
-          <Step step={3} currentStep={step} />
-          <Step step={4} currentStep={step} />
+          <Step step={1} currentStep={step} setStep={setStep} />
+          <Step step={2} currentStep={step} setStep={setStep} />
+          <Step step={3} currentStep={step} setStep={setStep} />
+          <Step step={4} currentStep={step} setStep={setStep} />
         </div>
         <div className='px-8 pb-8'>
           <div>

@@ -1,12 +1,14 @@
+import { Dispatch, SetStateAction } from 'react'
 import { motion } from 'framer-motion'
 import CheckIcon from './CheckIcon'
 
 interface Props {
   step: number
+  setStep: (value: number) => void
   currentStep: number
 }
 
-const Step = ({ step, currentStep }: Props): JSX.Element => {
+const Step = ({ step, setStep, currentStep }: Props): JSX.Element => {
   let status =
     currentStep === step
       ? 'active'
@@ -15,7 +17,14 @@ const Step = ({ step, currentStep }: Props): JSX.Element => {
       : 'complete'
 
   return (
-    <motion.div className='relative' animate={status}>
+    <motion.div
+      className={`${
+        status === 'complete' ? 'cursor-pointer' : ''
+      } relative select-none`}
+      animate={status}
+      onClick={() => {
+        if (step < currentStep) setStep(step)
+      }}>
       <motion.div
         variants={{
           active: {
